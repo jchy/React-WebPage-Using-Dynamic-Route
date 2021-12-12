@@ -5,9 +5,15 @@ import styles from "./navbar.module.css";
 const Navbar = () => {
   return (
     <div className={styles.navbar}>
-      <Link to="/">Home</Link>
-      <Link to="/product">Products</Link>
-      <Link to="/about">About</Link>
+      <Link to="/" className={styles.link}>
+        Home
+      </Link>
+      <Link to="/products" className={styles.link}>
+        Products
+      </Link>
+      <Link to="/about" className={styles.link}>
+        About
+      </Link>
     </div>
   );
 };

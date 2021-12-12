@@ -1,64 +1,78 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import styles from "../Components/navbar.module.css";
 
 const fetchProducts = () => {
-  return axios.get(
-    "https://dynamic-route-server-products.herokuapp.com/products"
-  );
+  return axios.get("https://json-dynamic-route.herokuapp.com/products");
 };
 
 const Products = () => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  const handleProductsFetch = async () => {
+  const handleFetchProduct = async () => {
     try {
       setIsLoading(true);
-
       const { data } = await fetchProducts();
-      console.log(data);
-      data.map((item) => {
-        console.log(item.name);
-      });
       setData(data);
     } catch (err) {
-      console.log("Error is : ", err);
+      console.log(err);
     }
     setIsLoading(false);
   };
 
   useEffect(() => {
-    handleProductsFetch();
+    handleFetchProduct();
   }, []);
 
   if (isLoading) {
-    return <div>...Loading</div>;
+    return <div>...loading</div>;
   }
   return (
     <div>
-      <h3>Products</h3>
-      <div style={{ display: "flex", flexDirection: "column", gap: "2" }}>
+      <p>Purchase our Genuine & Brand new Products</p>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          gap: "1rem",
+          flexWrap: "wrap",
+          margin: "auto",
+          marginLeft: "15%",
+          marginRight: "10%"
+        }}
+      >
         {data?.map((item) => {
           return (
             <>
               <div
-                key={item.id}
                 style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: 2,
-                  margin: 2,
-                  padding: 5
+                  border: "1px solid aqua",
+                  borderRadius: "10px",
+                  padding: "20px"
                 }}
               >
-                <div>
-                  <img src={item.url} alt="img" height="100px" />
-                </div>
+                <img
+                  src={item.url}
+                  alt=""
+                  width="200px"
+                  height="200px"
+                  style={{ marginTop: "20px" }}
+                />
                 <div>
                   <p>{item.name}</p>
-                  <p>Price : ₹{item.price}</p>
+                  <Link
+                    to={`/products/${item.id}`}
+                    className={styles.link}
+                    style={{
+                      padding: "10px",
+                      fontSize: "16px",
+                      border: "1px solid gray"
+                    }}
+                  >
+                    Show Product Info
+                  </Link>
                 </div>
               </div>
             </>
@@ -68,5 +82,4 @@ const Products = () => {
     </div>
   );
 };
-
 export default Products;

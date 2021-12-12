@@ -1,0 +1,22 @@
+.navbar {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  border: 2px solid blue;
+  padding: 20px;
+  font-size: 20px;
+  background: black;
+  border-radius: 8px;
+}
+.link {
+  text-decoration: none;
+  color: white;
+  font-family: digital;
+  border: 1px solid aqua;
+  padding: 5px;
+  width: 100px;
+  border-radius: 10px;
+}
+.productCard {
+  color: white;
+}
