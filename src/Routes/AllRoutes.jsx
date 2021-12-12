@@ -3,6 +3,7 @@ import Products from "../Pages/Products";
 import Home from "../Pages/Home";
 import ProductDetails from "../Pages/ProductDetails";
 import About from "../Pages/About";
+import Admin from "../Pages/Admin";
 
 const AllRoutes = () => {
   return (
@@ -21,6 +22,10 @@ const AllRoutes = () => {
 
       <Route exact path="/about">
         <About />
+      </Route>
+
+      <Route exact path="/admin">
+        <Admin />
       </Route>
     </div>
   );

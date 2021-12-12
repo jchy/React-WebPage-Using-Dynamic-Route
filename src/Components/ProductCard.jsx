@@ -7,7 +7,7 @@ const ProductCards = ({ id, name, price, url }) => {
         display: "flex",
         justifyContent: "center",
         border: "1px solid aqua",
-        width: "400px",
+        width: "600px",
         margin: "auto",
         borderRadius: "10px"
       }}
@@ -17,9 +17,12 @@ const ProductCards = ({ id, name, price, url }) => {
         alt=""
         width="200"
         height="200"
-        style={{ marginTop: "20px" }}
+        style={{ marginTop: "20px", borderRadius: "20px", padding: "20px" }}
       />
-      <div style={{ textAlign: "left" }} className={styles.productCard}>
+      <div
+        style={{ textAlign: "left", paddingLeft: "10px" }}
+        className={styles.productCard}
+      >
         <p>
           {name} Id : {id}
         </p>

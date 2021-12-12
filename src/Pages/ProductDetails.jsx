@@ -6,9 +6,11 @@ import styles from "../Components/navbar.module.css";
 import ProductCard from "../Components/ProductCard";
 
 const getProductById = (id) => {
-  return axios.get(
-    `https://dynamic-route-server-products.herokuapp.com/products/${id}`
-  );
+  const config = {
+    method: "get",
+    url: `https://dynamic-route-server-products.herokuapp.com/products/${id}`
+  };
+  return axios(config);
 };
 const ProductDetails = () => {
   const { id } = useParams();

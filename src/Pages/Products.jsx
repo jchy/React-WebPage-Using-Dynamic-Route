@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import styles from "../Components/navbar.module.css";
 
 const fetchProducts = () => {
-  return axios.get("https://json-dynamic-route.herokuapp.com/products");
+  return axios.get(
+    "https://dynamic-route-server-products.herokuapp.com/products"
+  );
 };
 
 const Products = () => {
@@ -31,7 +33,9 @@ const Products = () => {
   }
   return (
     <div>
-      <p>Purchase our Genuine & Brand new Products</p>
+      <p className={styles.welcomeMsg}>
+        Purchase our Genuine & Brand new Products
+      </p>
       <div
         style={{
           display: "flex",
@@ -61,7 +65,7 @@ const Products = () => {
                   style={{ marginTop: "20px" }}
                 />
                 <div>
-                  <p>{item.name}</p>
+                  <p style={{ color: "white" }}>{item.name}</p>
                   <Link
                     to={`/products/${item.id}`}
                     className={styles.link}
