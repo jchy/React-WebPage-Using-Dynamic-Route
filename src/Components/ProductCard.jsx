@@ -20,7 +20,7 @@ const ProductCards = ({ id, name, price, url }) => {
         style={{ marginTop: "20px", borderRadius: "20px", padding: "20px" }}
       />
       <div
-        style={{ textAlign: "left", paddingLeft: "10px" }}
+        style={{ textAlign: "left", paddingLeft: "10px", paddingTop: "50px" }}
         className={styles.productCard}
       >
         <p>
